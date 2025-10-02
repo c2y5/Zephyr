@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passed Challenge</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #141517 0%, #1e2024 100%);
+            color: #e9ecef;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        .card {
+            background: rgba(40, 42, 47, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .card-body {
+            padding: 40px;
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: #20c997;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            color: #4dabf7;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .subtitle {
+            color: #adb5bd;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        .stats-card {
+            background: rgba(13, 110, 253, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(13, 110, 253, 0.2);
+            margin: 25px 0;
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        .stat-label {
+            color: #adb5bd;
+        }
+        .stat-value {
+            color: #4dabf7;
+            font-weight: 600;
+        }
+        .btn-access {
+            background: linear-gradient(135deg, #20c997, #0dcaf0);
+            border: none;
+            color: #141517;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .btn-access:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(32, 201, 151, 0.4);
+        }
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(32, 201, 151, 0.1);
+            color: #20c997;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            border: 1px solid rgba(32, 201, 151, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <i class="bi bi-shield-check success-icon"></i>
+                <h1 class="card-title">Passed</h1>
+                <p class="subtitle">Proof of Work challenge completed successfully</p>
+                
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <span class="stat-label">Challenge Completed</span>
+                        <span class="stat-value" id="completion-time">{{ completion_time }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Difficulty Level</span>
+                        <span class="stat-value" id="difficulty-level">{{ difficulty_level }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Processing Time</span>
+                        <span class="stat-value" id="processing-time">{{ processing_time }}</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Hash Rate</span>
+                        <span class="stat-value" id="hash-rate">{{ hash_rate }}</span>
+                    </div>
+                </div>
+                <button id="reset-button" class="btn btn-danger mt-3">Reset Challenge</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('reset-button').addEventListener('click', () => {
+            document.cookie = "Zephyr.PoW.JWT=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            window.location.href = "/";
+        });
+    </script>
+</body>
+</html>
